@@ -1,0 +1,28 @@
+html, body {
+    background-color: beige;
+    display: grid;
+    justify-content: center;
+    max-height: 10px;
+}
+
+header, h1 {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    display: grid;
+    height: 960px;
+    width: 960px;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: solid 8px black;
+    margin: 0 50px 50px 50px;
+}
+
+.grid {
+    padding: 5px;
+    border: solid 2px black;
+}
