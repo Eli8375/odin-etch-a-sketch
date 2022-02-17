@@ -23,6 +23,15 @@ header, h1 {
 }
 
 .grid {
-    padding: 5px;
-    border: solid 2px black;
+    padding: 0px;
+}
+
+button {
+    border: solid 5px brown;
+    border-radius: 5px;
+    background-color: brown;
+}
+
+button:hover {
+    opacity: 90%;
 }

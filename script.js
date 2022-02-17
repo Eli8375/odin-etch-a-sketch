@@ -10,23 +10,40 @@ function createHeader() {
     header.appendChild(titleHeader)
 }
 
+
+//test
+
+let opacityValues = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+let opacity = opacityValues.forEach(function (item) {
+    item
+})
+
+
+
+//test
+
 function createDivs() {
     let div = document.createElement("div")
     div.classList.add("grid")
     container.append(div)
-    div.addEventListener("mouseover", function() {
-        div.style.cssText = "background-color: black;"
-    })
+    for (let i = 0; i <= 10; i++) {
+        div.addEventListener("mouseover", function() {
+            //let redNumber = Math.floor(Math.random()*255)
+            //let blueNumber = Math.floor(Math.random()*255)
+            //let greenNumber = Math.floor(Math.random()*255)
+            //div.style.cssText = `background-color: rgb(${redNumber}, ${blueNumber}, ${greenNumber});`
+            div.style.cssText = `background-color: black; opacity: ${opacity}%;`
+        })
+    }
 }
 
-//fix this so an amount of 100 can fit in the box
 function createGrid() {
     for (let i = 0; i < (16*16); i++) {
         createDivs()
     }
 }
 
-//fix this iterable function for the userchoice
 function resetGrid(sign) {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
@@ -34,6 +51,8 @@ function resetGrid(sign) {
     for (let i = 0; i < (sign*sign); i++) {
         createDivs()
     }
+    container.style.gridTemplateColumns = `repeat(${sign}, 1fr)`
+    container.style.gridTemplateRows = `repeat(${sign}, 1fr)`
 }
 
 function createPlayAgainButton() {
@@ -44,12 +63,9 @@ function createPlayAgainButton() {
         let sign = window.prompt("How many grids would you like to use? Choose between 1-100.")
         if (sign <= 100 && sign > 0) {
             resetGrid(sign)
-        } else {
-            alert("Choose between 1 and 100!")
-        }
+        } else return
     })
 }
-
 
 function createEAS() {
     createGrid()
@@ -57,12 +73,4 @@ function createEAS() {
     createPlayAgainButton()
 }
 
-function createNewEAS() {
-
-}
-
 createEAS()
-
-
-//in the .container css, there grid-template-columns and rows properties are causing issues with new grids
-//that is necessary to fix
