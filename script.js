@@ -1,5 +1,7 @@
-const body = document.querySelector("body")
-const container = document.querySelector(".container")
+let body = document.querySelector("body")
+let container = document.querySelector(".container")
+
+
 
 function createHeader() {
     const header = document.querySelector("header")
@@ -9,7 +11,7 @@ function createHeader() {
 }
 
 function createDivs() {
-    const div = document.createElement("div")
+    let div = document.createElement("div")
     div.classList.add("grid")
     container.append(div)
     div.addEventListener("mouseover", function() {
@@ -25,32 +27,42 @@ function createGrid() {
 }
 
 //fix this iterable function for the userchoice
-function resetGrid(...sign) {
-    for (let i = 0; i < (sign); i++) {
+function resetGrid(sign) {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+    for (let i = 0; i < (sign*sign); i++) {
         createDivs()
     }
 }
 
 function createPlayAgainButton() {
     let playAgainButton = document.createElement("button")
-    playAgainButton.textContent = "Start Over?"
+    playAgainButton.textContent = "Reset?"
     body.appendChild(playAgainButton)
     playAgainButton.addEventListener("click", function() {
-        let sign = window.prompt("How many grids would you like to use?")
-        if (sign <= 100) {
-            //place the iterable amount here
+        let sign = window.prompt("How many grids would you like to use? Choose between 1-100.")
+        if (sign <= 100 && sign > 0) {
+            resetGrid(sign)
+        } else {
+            alert("Choose between 1 and 100!")
         }
     })
 }
 
 
-function createWebpage() {
+function createEAS() {
     createGrid()
     createHeader()
     createPlayAgainButton()
 }
 
-createWebpage()
+function createNewEAS() {
+
+}
+
+createEAS()
+
 
 //in the .container css, there grid-template-columns and rows properties are causing issues with new grids
 //that is necessary to fix
