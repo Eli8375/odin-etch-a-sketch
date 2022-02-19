@@ -2,7 +2,7 @@ let body = document.querySelector("body")
 let container = document.querySelector(".container")
 
 
-
+//this created the header via javascript
 function createHeader() {
     const header = document.querySelector("header")
     let titleHeader = document.createElement("h1")
@@ -11,18 +11,7 @@ function createHeader() {
 }
 
 
-//test
-
-let opacityValues = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-
-let opacity = opacityValues.forEach(function (item) {
-    item
-})
-
-
-
-//test
-
+//this creates the div grids and allows mouse functionality
 function createDivs() {
     let div = document.createElement("div")
     div.classList.add("grid")
@@ -33,17 +22,19 @@ function createDivs() {
             //let blueNumber = Math.floor(Math.random()*255)
             //let greenNumber = Math.floor(Math.random()*255)
             //div.style.cssText = `background-color: rgb(${redNumber}, ${blueNumber}, ${greenNumber});`
-            div.style.cssText = `background-color: black; opacity: ${opacity}%;`
+            div.style.cssText = `background-color: black;`
         })
     }
 }
 
+//this allows the initial grid to be created
 function createGrid() {
     for (let i = 0; i < (16*16); i++) {
         createDivs()
     }
 }
 
+//this allows the grid to reset and then create a new grid
 function resetGrid(sign) {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
@@ -55,6 +46,7 @@ function resetGrid(sign) {
     container.style.gridTemplateRows = `repeat(${sign}, 1fr)`
 }
 
+//this enables functionality for the reset button and parameters for the user to input for a new grid
 function createPlayAgainButton() {
     let playAgainButton = document.createElement("button")
     playAgainButton.textContent = "Reset?"
@@ -67,6 +59,7 @@ function createPlayAgainButton() {
     })
 }
 
+//condenses all the functions
 function createEAS() {
     createGrid()
     createHeader()

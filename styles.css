@@ -3,6 +3,10 @@ html, body {
     display: grid;
     justify-content: center;
     max-height: 10px;
+    grid-template-areas:
+    "header"
+    "container"
+    "button";
 }
 
 header, h1 {
@@ -19,7 +23,7 @@ header, h1 {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     border: solid 8px black;
-    margin: 0 50px 50px 50px;
+    margin: 0 50px 20px 50px;
 }
 
 .grid {
@@ -30,6 +34,9 @@ button {
     border: solid 5px brown;
     border-radius: 5px;
     background-color: brown;
+    grid-area: button;
+    width: 400px;
+    place-self: center;
 }
 
 button:hover {
